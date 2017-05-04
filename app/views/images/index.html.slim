@@ -1,5 +1,4 @@
 - @images.each do |image|
   h2 #{image.girl.name}
-  = image_tag image.img_path
-  div
-    = button_tag 'いいね！', class: 'btn btn-primary'
+  == render "shared/image", image: image
+

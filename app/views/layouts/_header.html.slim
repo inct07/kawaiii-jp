@@ -1,0 +1,13 @@
+nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      button.navbar-toggle.collapsed[data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"]
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to "かわいい.jp", root_path, class: 'navbar-brand'
+    #navbar.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        = link_to "hoge1", root_path, class: 'navbar-brand'
+        = link_to "hoge2", root_path, class: 'navbar-brand'
+        = link_to "hoge3", root_path, class: 'navbar-brand'

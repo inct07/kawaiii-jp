@@ -1,0 +1,23 @@
+.text-center
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+
+    .field
+      br
+        = f.label 'メールアドレス'
+      = f.email_field :email, autofocus: true
+
+    .field
+      br
+        = f.label 'パスワード'
+      = f.password_field :password, autocomplete: "off"
+
+    .field
+      br
+        = f.label 'パスワード確認用'
+      = f.password_field :password_confirmation, autocomplete: "off"
+
+    .actions
+      = f.submit "アカウント作成", class: 'btn btn-info'
+
+  == render "users/shared/links"

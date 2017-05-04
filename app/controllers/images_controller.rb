@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
   def index
-    @images = Image.all
+    @images = Image.includes(:girl)
   end
 end

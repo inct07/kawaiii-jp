@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', github: 'plataformatec/devise'
 gem 'slim-rails'
 gem 'jquery-rails'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

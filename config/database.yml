@@ -8,14 +8,23 @@ default: &default
 
 development:
   <<: *default
-  database: kawaiii-jp_development
+  database: <%= ENV['KAWAIII_JP_DEVELOPMENT_DATABASE_NAME'] %>
+  host: <%= ENV['KAWAIII_JP_DEVELOPMENT_DATABASE_HOST'] %>
+  username: <%= ENV['KAWAIII_JP_DEVELOPMENT_DATABASE_USERNAME'] %>
+  password: <%= ENV['KAWAIII_JP_DEVELOPMENT_DATABASE_PASSWORD'] %>
 
 test:
   <<: *default
-  database: kawaiii-jp_test
+  database: <%= ENV['KAWAIII_JP_TEST_DATABASE_NAME'] %>
+  host: <%= ENV['KAWAIII_JP_TEST_DATABASE_HOST'] %>
+  username: <%= ENV['KAWAIII_JP_TEST_DATABASE_USERNAME'] %>
+  password: <%= ENV['KAWAIII_JP_TEST_DATABASE_PASSWORD'] %>
 
 production:
   <<: *default
-  database: kawaiii-jp_production
-  username: kawaiii-jp
-  password: <%= ENV['KAWAIII-JP_DATABASE_PASSWORD'] %>
+  database: <%= ENV['KAWAIII_JP_PRODUCTION_DATABASE_NAME'] %>
+  host: <%= ENV['KAWAIII_JP_PRODUCTION_DATABASE_HOST'] %>
+  username: <%= ENV['KAWAIII_JP_PRODUCTION_DATABASE_USERNAME'] %>
+  password:  <%= ENV['KAWAIII_JP_PRODUCTION_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
+

@@ -19,6 +19,7 @@ gem 'devise', github: 'plataformatec/devise'
 gem 'slim-rails'
 gem 'jquery-rails'
 gem 'dotenv-rails'
+gem 'unicorn'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -34,5 +35,3 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'unicorn'

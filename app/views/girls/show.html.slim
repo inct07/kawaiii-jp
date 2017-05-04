@@ -1,3 +1,6 @@
+= hidden_field_tag 'authenticity_token', form_authenticity_token
 h1 #{@girl.name}
-- @girl.images.each do |image|
+- @images.each do |image|
   == render "shared/image", image: image
+
+= javascript_include_tag 'favorite', 'data-turbolinks-track': 'reload'

@@ -8,6 +8,9 @@ nav.navbar.navbar-default.navbar-fixed-top
       = link_to "かわいい.jp", root_path, class: 'navbar-brand'
     #navbar.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
-        = link_to "hoge1", root_path, class: 'navbar-brand'
-        = link_to "hoge2", root_path, class: 'navbar-brand'
-        = link_to "hoge3", root_path, class: 'navbar-brand'
+        - if user_signed_in?
+          = link_to "マイページ", root_path, class: 'navbar-brand'
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'navbar-brand'
+        - else
+          = link_to "ログイン", user_session_path, class: 'navbar-brand'
+          = link_to "アカウント作成", new_user_registration_path, class: 'navbar-brand'

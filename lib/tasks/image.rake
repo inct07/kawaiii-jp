@@ -65,7 +65,7 @@ namespace :image do
     while i < total_num do
       response = conn.get do |req|
         req.url '/customsearch/v1'
-        req.params[:key]            = ENV['GOOGLE_DEVELOPERS_API']
+        req.params[:key]            = ENV['GOOGLE_DEVELOPERS_API_KEY']
         req.params[:cx]             = ENV['CUSTOM_SEARCH_ENGINE_ID']
         req.params[:num]            = total_num - i > 10 ? 10 : total_num - i
         req.params[:start]          = i + 1

@@ -21,6 +21,8 @@ gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'unicorn'
 gem 'whenever', :require => false
+gem 'faraday'
+gem 'activerecord-import'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

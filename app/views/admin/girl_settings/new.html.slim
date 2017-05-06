@@ -1,0 +1,6 @@
+h1 美少女の追加
+= form_for @girl, url: admin_girl_settings_path do |f|
+  .form-group
+    == render 'admin/girl_settings/form', f: f
+    .text-center
+      = f.submit '追加', class: "btn btn-success"

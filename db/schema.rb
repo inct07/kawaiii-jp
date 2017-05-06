@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20170506225700) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description_path"
+    t.integer "thumbnail_image_id"
     t.index ["name"], name: "index_girls_on_name"
   end
 
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170506225700) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "authority", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

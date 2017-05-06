@@ -1,0 +1,12 @@
+- if flash.notice
+  .container
+    .alert.alert-dismissible.alert-success[role="alert" style="margin-top:20px;"]
+      button.close[type="button" data-dismiss="alert" aria-label="Close"]
+        span[aria-hidden="true"] &times;
+      = simple_format flash.notice
+- if flash.alert
+  .container
+    .alert.alert-dismissible.alert-danger[role="alert" style="margin-top:20px;"]
+      button.close[type="button" data-dismiss="alert" aria-label="Close"]
+        span[aria-hidden="true"] &times;
+      = simple_format flash.alert

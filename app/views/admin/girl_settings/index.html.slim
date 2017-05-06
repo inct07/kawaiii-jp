@@ -1,0 +1,27 @@
+h1 美少女一覧
+table.table.table-hover
+  thead
+    tr
+      th id
+      th サムネ
+      th 名前
+      th 参照URL
+      th
+  tbody
+    - @girls.each do |girl|
+      tr
+        td = girl.id
+        - if girl.thumbnail_image
+          td = image_tag girl.thumbnail_image.img_path, class: 'thumbnail-img'
+        - else
+          td = image_tag '/no_image.png', class: 'thumbnail-img'
+        td = girl.name
+        td = link_to girl.description_path, girl.description_path, target: '_new'
+        td.text-right
+          = link_to '編集', edit_admin_girl_setting_path(girl), class: 'btn btn-info', style: 'margin-right: 5px'
+          = link_to '削除', admin_girl_setting_path(girl), method: :delete, class: 'btn btn-danger', data: { confirm: '本当に削除しますか？' }
+
+.text-center
+  = link_to '追加', new_admin_girl_setting_path, class: 'btn btn-info'
+
+= stylesheet_link_tag 'thumbnail', media: 'all', 'data-turbolinks-track': 'reload'

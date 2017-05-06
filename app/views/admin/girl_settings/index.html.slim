@@ -1,0 +1,19 @@
+h1 美少女リスト一覧
+table.table.table-hover
+  thead
+    tr
+      th id
+      th 名前
+      th
+  tbody
+    - @girls.each do |girl|
+      tr
+        td = girl.id
+        td = girl.name
+        td.text-right
+          = link_to '詳細', admin_girl_setting_path(girl), class: 'btn btn-info'
+          = link_to '編集', edit_admin_girl_setting_path(girl), class: 'btn btn-info'
+          = link_to '削除', admin_girl_setting_path(girl), method: :delete, class: 'btn btn-danger', data: { confirm: '本当に削除しますか？' }
+
+.text-center
+  = link_to '追加', new_admin_girl_setting_path, class: 'btn btn-info'

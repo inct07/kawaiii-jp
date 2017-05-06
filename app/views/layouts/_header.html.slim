@@ -11,6 +11,8 @@ nav.navbar.navbar-default.navbar-fixed-top
         - if user_signed_in?
           = link_to "マイページ", mypage_favorites_path, class: 'navbar-brand'
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'navbar-brand'
+          - if current_user.admin?
+            = link_to "管理者ページ", admin_top_path, class: 'navbar-brand'
         - else
           = link_to "ログイン", user_session_path, class: 'navbar-brand'
           = link_to "アカウント作成", new_user_registration_path, class: 'navbar-brand'

@@ -10,8 +10,15 @@ class Admin::GirlSettingsController < ApplicationController
   end
 
   def create
-    Girl.create(girl_params)
-    redirect_to admin_girl_settings_path
+    @girl = Girl.new(girl_params)
+    begin
+      @girl.save!
+      flash.notice = '美少女を追加しました。'
+      redirect_to admin_girl_settings_path
+    rescue => e
+      flash.alert = e.message
+      render action: 'new'
+    end
   end
 
   def edit
@@ -20,14 +27,27 @@ class Admin::GirlSettingsController < ApplicationController
   end
 
   def update
-    girl = Girl.find(params[:id])
-    girl.update(girl_params)
-    redirect_to admin_girl_settings_path
+    @girl = Girl.find(params[:id])
+    @girl.assign_attributes(girl_params)
+    begin
+      @girl.save!
+      flash.notice = '美少女の設定を更新しました。'
+      redirect_to admin_girl_settings_path
+    rescue => e
+      @images = @girl.images
+      flash.alert = e.message
+      render action: 'edit'
+    end
   end
 
   def destroy
     girl = Girl.find(params[:id])
-    girl.destroy
+    begin
+      girl.destroy!
+      flash.notice = '美少女を削除しました。'
+    rescue => e
+      flash.alert = '美少女を削除に失敗しました。'
+    end
     redirect_to admin_girl_settings_path
   end
 

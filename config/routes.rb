@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'top#index'
     get 'top' => 'top#index'
-    resources :girl_settings
+    resources :girl_settings, execpt: [:show]
   end
 
   resources :girls, only: [:index, :show]

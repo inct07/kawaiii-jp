@@ -11,8 +11,7 @@ table.table.table-hover
         td = girl.id
         td = girl.name
         td.text-right
-          = link_to '詳細', admin_girl_setting_path(girl), class: 'btn btn-info'
-          = link_to '編集', edit_admin_girl_setting_path(girl), class: 'btn btn-info'
+          = link_to '編集', edit_admin_girl_setting_path(girl), class: 'btn btn-info', style: 'margin-right: 5px'
           = link_to '削除', admin_girl_setting_path(girl), method: :delete, class: 'btn btn-danger', data: { confirm: '本当に削除しますか？' }
 
 .text-center

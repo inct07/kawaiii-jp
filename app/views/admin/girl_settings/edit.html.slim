@@ -1,31 +1,25 @@
 h1 美少女の設定編集
 = form_for @girl, url: admin_girl_setting_path do |f|
   .form-group
-    .row
-      .col-md-4
-        = f.label :name, '名前', class: 'control-label'
-        = f.text_field :name, class: 'form-control', placeholder: '例) 新垣結衣', style: 'margin: 10px'
-    .row
-      .col-md-8
-        = f.label :description_path, '参照URL', class: 'control-label'
-        = f.text_field :description_path, class: 'form-control', placeholder: '推奨はWikipediaのURL', style: 'margin: 10px'
+    == render 'admin/girl_settings/form', f: f
     .row
       .col-md-4
         = f.label :thumbnail_image_id, 'サムネ画像', class: 'control-label'
-        = f.text_field :thumbnail_image_id, class: 'form-control thumbnail-id', placeholder: '例) 1', style: 'margin: 10px', type: 'hidden'
+        = f.text_field :thumbnail_image_id, class: 'form-control', placeholder: '例) 1', style: 'margin: 10px', type: 'hidden', id: 'thumbnail-id'
     .row
       - if @girl.thumbnail_image
-        = image_tag @girl.thumbnail_image.img_path, width: '100', height: '100', class: 'thumbnail-img', style: 'margin: 5px;'
+        = image_tag @girl.thumbnail_image.img_path, class: 'thumbnail-img'
       - else
-        = image_tag '/no_image.png', width: '100', height: '100', class: 'thumbnail-img', style: 'margin: 5px;'
+        = image_tag '/no_image.png', class: 'thumbnail-img'
     .row.panel.panel-default
       .panel-heading
-        p.open-thumbnail-candidate[style="text-decoration:underline; color:blue;"]
+        p#open-thumbnail-candidate[style="text-decoration:underline; color:blue;"]
           | サムネイル候補画像
       .panel-body.thumbnail-candidate-panel[style="display:none"]
         - @images.each do |image|
-          = image_tag image.img_path, width: '100', height: '100', style: "margin: 5px", class: 'thumbnail-candidate-img', id: image.id
+          = image_tag image.img_path, class: 'thumbnail-candidate-img', id: image.id
     .text-center
       = f.submit '変更', class: "btn btn-success"
 
-= javascript_include_tag 'change_girl_thumbnail', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'edit_girl_thumbnail', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag 'thumbnail', media: 'all', 'data-turbolinks-track': 'reload'

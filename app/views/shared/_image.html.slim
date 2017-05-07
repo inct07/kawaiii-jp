@@ -1,5 +1,10 @@
 div.col-xs-12.col-md-6.col-lg-3
   = image_tag image.img_path, class: "img-responsive center-block girl-img"
+  div
+    span.text-muted 出典：
+    span
+      = link_to  URI.unescape(URI.parse(image.img_path).host), image.img_path, class: 'text-muted'
+  div
   p
   - if image.favorited_users.include?(current_user)
     = button_tag '', class: "btn favorite-button favorite center-block", value: image.id, style: "background-color: #ff69b4", id: image.id

@@ -1,6 +1,10 @@
-= image_tag image.img_path
+= image_tag image.img_path, class: "img-responsive center-block girl-img"
 div
+  p
   - if image.favorited_users.include?(current_user)
-    = button_tag 'たまらん', class: 'btn btn-danger favorite-button favorite', value: image.id
+    = button_tag '', class: "btn favorite-button favorite center-block", value: image.id, style: "background-color: #ff69b4", id: image.id
+        span.glyphicon.glyphicon-heart たまらん
   - else
-    = button_tag 'たまらん', class: 'btn btn-default favorite-button no-favorite', value: image.id
+    = button_tag '', class: "btn btn-default favorite-button no-favorite center-block", value: image.id, style: "background-color: white", id: image.id
+        span.glyphicon.glyphicon-heart-empty たまらん
+  p

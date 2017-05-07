@@ -1,6 +1,6 @@
 h1 #{@girl.name}
-div.container-fluid
-  div.row
+.container-fluid
+  .row
     - @images.each do |image|
       == render "shared/image", image: image
 = javascript_include_tag 'favorite', 'data-turbolinks-track': 'reload'

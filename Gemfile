@@ -23,6 +23,7 @@ gem 'unicorn'
 gem 'whenever', :require => false
 gem 'faraday'
 gem 'activerecord-import'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -20,4 +20,4 @@
 /vendor/bundle
 .idea/*
 /public/assets/
-.env
+.env*

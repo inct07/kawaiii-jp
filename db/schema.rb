@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506164234) do
+ActiveRecord::Schema.define(version: 20170506225700) do
 
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "image_id", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170506164234) do
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "girl_id", null: false
-    t.string "img_path", null: false
+    t.text "img_path", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["girl_id"], name: "index_images_on_girl_id"

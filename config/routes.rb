@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, only: [:sessions,:registrations]
 
   scope :mypage do
-    get 'favorites' => 'mypage#favorites', as: :mypage_favorites
+    get 'favorites(/:girl_id)' => 'mypage#favorites', as: :mypage_favorites
   end
 
   namespace :admin do

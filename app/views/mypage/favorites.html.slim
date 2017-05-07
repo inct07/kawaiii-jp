@@ -1,6 +1,10 @@
 h1 お気に入り
 
-- if !@images.blank?
+- if @images.blank?
+    h4 お気に入りの美少女が存在しません。
+    div
+      = link_to "→美少女を探す", root_path
+- else
   table.table.table-hover
     thead
       tr
@@ -14,20 +18,20 @@ h1 お気に入り
           tr class=((@girl_id.blank? || @girl_id == girl.id.to_s) ? 'info' : 'active')
             td = girl.id
             td = image_tag (girl.thumbnail_image ? girl.thumbnail_image.img_path : '/no_image.png'), class: 'thumbnail-img'
-            td = link_to girl.name, girl.description_path, target: '_new'
+            td = link_to girl.name, girl.description_path
             td = @favo_count[girl.id]
 
   div
     - if @girl_id.blank?
       = button_tag "すべて", class: 'btn btn-default btn-primary active', value: 0
     - else
-      = link_to "すべて", mypage_favorites_path, target: '_new', class: 'btn btn-default', value: 0
+      = link_to "すべて", mypage_favorites_path, class: 'btn btn-default', value: 0
     - Girl.all.each do |girl|
       - if !@favo_count[girl.id].blank?
         - if @girl_id == girl.id.to_s
           = button_tag girl.name, class: 'btn btn-default btn-primary active', value: girl.id
         - else
-          = link_to girl.name, mypage_favorites_path(girl.id), target: '_new', class: 'btn btn-default', value: girl.id
+          = link_to girl.name, mypage_favorites_path(girl.id), class: 'btn btn-default', value: girl.id
 
   - @images.each do |image|
     div
@@ -35,3 +39,5 @@ h1 お気に入り
         == render "shared/image", image: image
 
   = stylesheet_link_tag 'thumbnail', media: 'all', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag 'favorite', 'data-turbolinks-track': 'reload'
+  = hidden_field_tag 'authenticity_token', form_authenticity_token

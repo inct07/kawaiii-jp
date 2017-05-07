@@ -3,10 +3,6 @@ class MypageController < ApplicationController
     @girl_id = params[:girl_id]
     @images = current_user.favorite_images.includes(:favorited_users)
     get_favorite_count
-
-    if @images.blank?
-      flash.alert = 'お気に入りの美少女が存在しません。'
-    end
   end
 
   private

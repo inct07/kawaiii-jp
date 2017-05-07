@@ -1,5 +1,9 @@
 = image_tag image.img_path
 div
+  span.text-muted 出典:
+  span
+    = link_to URI.parse(image.img_path).host, image.img_path, class: 'text-muted'
+div
   - if image.favorited_users.include?(current_user)
     = button_tag 'たまらん', class: 'btn btn-danger favorite-button favorite', value: image.id
   - else

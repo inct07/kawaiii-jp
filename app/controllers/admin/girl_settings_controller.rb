@@ -46,7 +46,7 @@ class Admin::GirlSettingsController < ApplicationController
       girl.destroy!
       flash.notice = '美少女を削除しました。'
     rescue => e
-      flash.alert = '美少女を削除に失敗しました。'
+      flash.alert = '美少女の削除に失敗しました。'
     end
     redirect_to admin_girl_settings_path
   end

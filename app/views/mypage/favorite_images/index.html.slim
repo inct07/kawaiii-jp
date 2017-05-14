@@ -2,9 +2,11 @@
   .col-md-3
     == render 'mypage/side_menu'
   .col-md-9
+    == render 'mypage/favorite_images/girl_nav'
+    hr
+    div[style="margin-top: 20px;"]
     - @images.each do |image|
       == render 'shared/image', image: image
 
-  = stylesheet_link_tag 'thumbnail', media: 'all', 'data-turbolinks-track': 'reload'
   = javascript_include_tag 'favorite', 'data-turbolinks-track': 'reload'
   = hidden_field_tag 'authenticity_token', form_authenticity_token

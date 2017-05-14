@@ -1,42 +1,44 @@
-h1 お気に入り
-
-- if @images.blank?
-    h4 お気に入りの美少女が存在しません。
-    div
-      = link_to "→美少女を探す", root_path
-- else
-  table.table.table-hover
-    thead
-      tr
-        th id
-        th サムネ
-        th 名前
-        th たまらん数
-    tbody
-      - Girl.all.each do |girl|
-        - if !@favo_count[girl.id].blank?
-          tr class=((@girl_id.blank? || @girl_id == girl.id.to_s) ? 'info' : 'active')
-            td = girl.id
-            td = image_tag (girl.thumbnail_image ? girl.thumbnail_image.img_path : '/no_image.png'), class: 'thumbnail-img'
-            td = link_to girl.name, girl.description_path
-            td = @favo_count[girl.id]
-
-  div
-    - if @girl_id.blank?
-      = button_tag "すべて", class: 'btn btn-default btn-primary active', value: 0
+.row
+  .col-md-3
+    == render 'mypage/side_menu'
+  .col-md-9
+    - if @images.blank?
+        h4 お気に入りの美少女が存在しません。
+        div
+          = link_to "→美少女を探す", root_path
     - else
-      = link_to "すべて", mypage_favorites_path, class: 'btn btn-default', value: 0
-    - Girl.all.each do |girl|
-      - if !@favo_count[girl.id].blank?
-        - if @girl_id == girl.id.to_s
-          = button_tag girl.name, class: 'btn btn-default btn-primary active', value: girl.id
-        - else
-          = link_to girl.name, mypage_favorites_path(girl.id), class: 'btn btn-default', value: girl.id
+      table.table.table-hover
+        thead
+          tr
+            th id
+            th サムネ
+            th 名前
+            th たまらん数
+        tbody
+          - Girl.all.each do |girl|
+            - if !@favo_count[girl.id].blank?
+              tr class=((@girl_id.blank? || @girl_id == girl.id.to_s) ? 'info' : 'active')
+                td = girl.id
+                td = image_tag (girl.thumbnail_image ? girl.thumbnail_image.img_path : '/no_image.png'), class: 'thumbnail-img'
+                td = link_to girl.name, girl.description_path
+                td = @favo_count[girl.id]
 
-  - @images.each do |image|
-    div
-      - if @girl_id.blank? || @girl_id == image.girl_id.to_s
-        == render "shared/image", image: image
+      div
+        - if @girl_id.blank?
+          = button_tag 'すべて', class: 'btn btn-default btn-primary active', value: 0
+        - else
+          = link_to 'すべて', mypage_favorites_path, class: 'btn btn-default', value: 0
+        - Girl.all.each do |girl|
+          - if !@favo_count[girl.id].blank?
+            - if @girl_id == girl.id.to_s
+              = button_tag girl.name, class: 'btn btn-default btn-primary active', value: girl.id
+            - else
+              = link_to girl.name, mypage_favorites_path(girl.id), class: 'btn btn-default', value: girl.id
+
+      - @images.each do |image|
+        div
+          - if @girl_id.blank? || @girl_id == image.girl_id.to_s
+            == render 'shared/image', image: image
 
   = stylesheet_link_tag 'thumbnail', media: 'all', 'data-turbolinks-track': 'reload'
   = javascript_include_tag 'favorite', 'data-turbolinks-track': 'reload'

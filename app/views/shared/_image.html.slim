@@ -8,8 +8,8 @@ div.col-xs-12.col-md-6.col-lg-3
   p
   - if image.favorited_users.include?(current_user)
     = button_tag '', class: "btn favorite-button favorite center-block", value: image.id, style: "background-color: #ff69b4", id: image.id
-        span.glyphicon.glyphicon-heart たまらん
+      span.glyphicon.glyphicon-heart たまらん
   - else
     = button_tag '', class: "btn favorite-button no-favorite center-block btn-default", value: image.id, id: image.id
-        span.glyphicon.glyphicon-heart-empty たまらん
+      span.glyphicon.glyphicon-heart-empty たまらん
   p

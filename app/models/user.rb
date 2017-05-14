@@ -7,6 +7,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :favorites
-  has_many :favorite_images, through: :favorites, source: 'image'
+  has_many :image_favorites
+  has_many :favorite_images, through: :image_favorites, source: 'image'
 end

@@ -10,17 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507094618) do
-
-  create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "image_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["image_id"], name: "index_favorites_on_image_id"
-    t.index ["user_id", "image_id"], name: "index_favorites_on_user_id_and_image_id", unique: true
-    t.index ["user_id"], name: "index_favorites_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 20170514082351) do
 
   create_table "girls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -29,6 +19,16 @@ ActiveRecord::Schema.define(version: 20170507094618) do
     t.string "description_path"
     t.integer "thumbnail_image_id"
     t.index ["name"], name: "index_girls_on_name"
+  end
+
+  create_table "image_favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "image_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["image_id"], name: "index_image_favorites_on_image_id"
+    t.index ["user_id", "image_id"], name: "index_image_favorites_on_user_id_and_image_id", unique: true
+    t.index ["user_id"], name: "index_image_favorites_on_user_id"
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20170507094618) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "favorites", "images"
-  add_foreign_key "favorites", "users"
+  add_foreign_key "image_favorites", "images"
+  add_foreign_key "image_favorites", "users"
   add_foreign_key "images", "girls"
 end

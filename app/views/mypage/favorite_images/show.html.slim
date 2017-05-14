@@ -8,5 +8,5 @@
       - @images.each do |image|
         == render 'shared/image', image: image
 
-  = javascript_include_tag 'favorite', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag 'image_favorite', 'data-turbolinks-track': 'reload'
   = hidden_field_tag 'authenticity_token', form_authenticity_token

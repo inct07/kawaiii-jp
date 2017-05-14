@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :girls, only: [:index, :show]
   resources :images, only: [:index]
-  resource :favorite, only: [:create, :destroy]
+  resource :image_favorite, only: [:create, :destroy]
 
   root 'girls#index'
 end

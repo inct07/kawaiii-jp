@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-
-
   enum authority: {
     user:  0,
     admin: 1
@@ -16,5 +14,9 @@ class User < ApplicationRecord
 
   def favorite_girls_num
     favorite_girls.count
+  end
+
+  def image_favorites_num_per_girl(girl_id)
+    favorite_images.select { |image| image.girl_id == girl_id}.count
   end
 end

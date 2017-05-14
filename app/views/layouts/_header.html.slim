@@ -9,7 +9,7 @@ nav.navbar.navbar-default.navbar-fixed-top
     #navbar.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
-          = link_to "マイページ", mypage_favorites_path, class: 'navbar-brand'
+          = link_to "マイページ", mypage_root_path, class: 'navbar-brand'
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'navbar-brand'
           - if current_user.admin?
             = link_to "管理者ページ", admin_top_path, class: 'navbar-brand'

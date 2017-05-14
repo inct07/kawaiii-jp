@@ -1,0 +1,15 @@
+.row
+  .col-md-3
+    == render 'mypage/side_menu'
+  .col-md-9
+    - if @images.blank?
+      h4 お気に入りの美少女が存在しません。
+      div
+        = link_to "→美少女を探す", root_path
+    - else
+      - @images.each do |image|
+        == render 'shared/image', image: image
+
+  = stylesheet_link_tag 'thumbnail', media: 'all', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag 'favorite', 'data-turbolinks-track': 'reload'
+  = hidden_field_tag 'authenticity_token', form_authenticity_token

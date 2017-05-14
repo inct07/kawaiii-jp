@@ -1,11 +1,11 @@
-class MypageController < ApplicationController
-  def favorites
-    @girl_id = params[:girl_id]
+class Mypage::FavoriteGirlsController < ApplicationController
+  def index
     @images = current_user.favorite_images.includes(:favorited_users)
     get_favorite_count
   end
 
   private
+
   def get_favorite_count
     @favo_count = {}
     @images.each do |image|

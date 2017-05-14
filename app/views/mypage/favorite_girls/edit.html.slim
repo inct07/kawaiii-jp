@@ -1,0 +1,5 @@
+h1 = "俺の#{@girl_favorite.rank}位を変更"
+= form_for @girl_favorite, url: mypage_favorite_girl_path do |f|
+  = f.select :girl_id, Girl.all.map {|girl| [girl.name, girl.id]}
+  .text-center
+    = f.submit '変更', class: 'btn btn-success'

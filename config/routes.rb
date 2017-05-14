@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :mypage do
     root 'favorite_images#index'
     resources :favorite_images, only: [:index, :show]
-    resources :favorite_girls, execpt: [:show]
+    resources :favorite_girls, execpt: [:show, :destroy]
   end
 
   namespace :admin do

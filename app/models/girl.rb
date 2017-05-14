@@ -9,5 +9,4 @@ class Girl < ApplicationRecord
 
   validates :name, presence: true, format: { with: HUMAN_NAME_REGEXP, allow_blank: true }
   validates :description_path, format: {with: URI_RAGEXP, allow_blank: true}
-
 end

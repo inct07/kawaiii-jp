@@ -1,6 +1,6 @@
 class Mypage::FavoriteGirlsController < ApplicationController
   def index
-    @favorite_girls = current_user.favorite_girls.order('rank')
+    @girl_favorites = current_user.girl_favorites.order('rank').includes(girl: [:thumbnail_image])
   end
 
   def new
@@ -17,9 +17,26 @@ class Mypage::FavoriteGirlsController < ApplicationController
     rescue GirlFavorite::OverMaxError => e
       flash.alert = e.message
       redirect_to mypage_favorite_girls_path
-    rescue => e
+    rescue GirlFavorite::DuplicateError, StandardError => e
       flash.alert = e.message
       render action: 'new'
+    end
+  end
+
+  def edit
+    @girl_favorite = GirlFavorite.find(params[:id])
+  end
+
+  def update
+    @girl_favorite = GirlFavorite.find(params[:id])
+    @girl_favorite.assign_attributes(girl_favorite_params)
+    begin
+      @girl_favorite.save!
+      flash.notice = '神7を変更しました'
+      redirect_to mypage_favorite_girls_path
+    rescue GirlFavorite::DuplicateError, StandardError => e
+      flash.alert = e.message
+      render action: 'edit'
     end
   end
 

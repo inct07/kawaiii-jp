@@ -1,18 +1,33 @@
 class Mypage::FavoriteGirlsController < ApplicationController
   def index
-    @images = current_user.favorite_images.includes(:favorited_users)
-    get_favorite_count
+    @favorite_girls = current_user.favorite_girls.order('rank')
+  end
+
+  def new
+    @girl_favorite = GirlFavorite.new
+  end
+
+  def create
+    rank = current_user.favorite_girls_num + 1
+    @girl_favorite = GirlFavorite.new(girl_favorite_params.merge(rank: rank))
+    begin
+      @girl_favorite.save!
+      flash.notice = '神7を追加しました'
+      redirect_to mypage_favorite_girls_path
+    rescue GirlFavorite::OverMaxError => e
+      flash.alert = e.message
+      redirect_to mypage_favorite_girls_path
+    rescue => e
+      flash.alert = e.message
+      render action: 'new'
+    end
   end
 
   private
 
-  def get_favorite_count
-    @favo_count = {}
-    @images.each do |image|
-      if @favo_count[image.girl_id].blank?
-        @favo_count.store(image.girl_id, 0)
-      end
-      @favo_count.store(image.girl_id, @favo_count[image.girl_id] + 1)
-    end
+  def girl_favorite_params
+    params.require(:girl_favorite).permit(
+      :girl_id
+    ).merge(user: current_user)
   end
 end

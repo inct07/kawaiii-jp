@@ -1,0 +1,5 @@
+h1 神7を追加
+= form_for @girl_favorite, url: mypage_favorite_girls_path do |f|
+  = f.select :girl_id, Girl.all.map {|girl| [girl.name, girl.id]}
+  .text-center
+    = f.submit '追加', class: 'btn btn-success'

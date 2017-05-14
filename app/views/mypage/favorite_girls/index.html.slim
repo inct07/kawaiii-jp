@@ -2,21 +2,26 @@
   .col-md-3
     == render 'mypage/side_menu'
   .col-md-9
-    table.table.table-hover
-      thead
-        tr
-          th id
-          th サムネ
-          th 名前
-          th たまらん数
-      tbody
-        - Girl.all.each do |girl|
-          - if !@favo_count[girl.id].blank?
-            tr class=((@girl_id.blank? || @girl_id == girl.id.to_s) ? 'info' : 'active')
-              td = girl.id
-              td = image_tag (girl.thumbnail_image ? girl.thumbnail_image.img_path : '/no_image.png'), class: 'thumbnail-img'
-              td = link_to girl.name, girl.description_path
-              td = @favo_count[girl.id]
-
+    - if @favorite_girls.blank?
+      h2.text-center  自分だけの神7を作ろう!
+    - else
+      table.table.table-hover
+        thead
+          tr
+            th 順位
+            th id
+            th サムネ
+            th 名前
+            th たまらん数
+        tbody
+          - @favorite_girls.each.with_index(1) do |favorite_girl, index|
+            tr
+              td = "#{index}位"
+              td = favorite_girl.id
+              td = image_tag (favorite_girl.thumbnail_image ? favorite_girl.thumbnail_image.img_path : '/no_image.png'), class: 'thumbnail-img'
+              td = link_to favorite_girl.name, favorite_girl.description_path, target: '_new'
+              td hoge
+    .text-center
+      = link_to '追加', new_mypage_favorite_girl_path, class: 'btn btn-info'
 
 = stylesheet_link_tag 'thumbnail', media: 'all', 'data-turbolinks-track': 'reload'

@@ -17,6 +17,6 @@ class User < ApplicationRecord
   end
 
   def image_favorites_num_per_girl(girl_id)
-    favorite_images.select { |image| image.girl_id == girl_id}.count
+    favorite_images.select { |image| image.girl_id == girl_id }.count
   end
 end

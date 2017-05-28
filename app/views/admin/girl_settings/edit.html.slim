@@ -7,17 +7,14 @@ h1 美少女の設定編集
         = f.label :thumbnail_image_id, 'サムネ画像', class: 'control-label'
         = f.text_field :thumbnail_image_id, class: 'form-control', placeholder: '例) 1', style: 'margin: 10px', type: 'hidden', id: 'thumbnail-id'
     .row
-      - if @girl.thumbnail_image
-        = image_tag @girl.thumbnail_image.img_path, class: 'thumbnail-img'
-      - else
-        = image_tag '/no_image.png', class: 'thumbnail-img'
+      == render "shared/thumbnail", girl: @girl
     .row.panel.panel-default
       .panel-heading
         p#open-thumbnail-candidate[style="text-decoration:underline; color:blue;"]
           | サムネイル候補画像
       .panel-body.thumbnail-candidate-panel[style="display:none"]
         - @images.each do |image|
-          = image_tag image.img_path, class: 'thumbnail-candidate-img', id: image.id
+          .thumbnail-candidate-img style="background-image: url(#{image.img_path})" id="#{image.id}"
     .text-center
       = f.submit '変更', class: "btn btn-success"
 

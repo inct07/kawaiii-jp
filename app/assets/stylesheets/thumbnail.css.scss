@@ -2,17 +2,43 @@
   opacity: 1;
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
+  // width: 100px;
+  // height: 100px;
+  // margin: 5px;
   width: 100px;
   height: 100px;
   margin: 5px;
+  border-radius: 50%;
+  border: 3px solid #ffe5ff;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
 }
 .thumbnail-candidate-img:hover {
   opacity: .5;
 }
-
 .thumbnail-img {
   width: 100px;
   height: 100px;
   margin: 5px;
+  border-radius: 50%;
+  border: 3px solid #ffe5ff;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
+.thumbnail-img a{
+  position:absolute;
+  width: 100px;
+  height: 100px;
+  text-indent:-999px;
+}
+.thumbnail-img a:hover{
+  margin: -3px;
+  border-radius: 50%;
+  background-color:#FFF;
+  filter:alpha(opacity=50);
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}

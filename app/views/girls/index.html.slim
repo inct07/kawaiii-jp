@@ -1,3 +1,8 @@
 - @girls.each do |girl|
-  div
-    = link_to girl.name, girl_path(girl)
+  div.col-xs-12.col-md-6.col-lg-3
+    .row
+      == render "shared/thumbnail", girl: girl
+    .row
+      = link_to girl.name, girl_path(girl)
+
+= stylesheet_link_tag 'thumbnail', media: 'all', 'data-turbolinks-track': 'reload'

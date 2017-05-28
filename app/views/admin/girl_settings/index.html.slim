@@ -11,10 +11,7 @@ table.table.table-hover
     - @girls.each do |girl|
       tr
         td = girl.id
-        - if girl.thumbnail_image
-          td = image_tag girl.thumbnail_image.img_path, class: 'thumbnail-img'
-        - else
-          td = image_tag '/no_image.png', class: 'thumbnail-img'
+        td == render "shared/thumbnail", girl: girl
         td = girl.name
         td = link_to girl.description_path, girl.description_path, target: '_new'
         td.text-right

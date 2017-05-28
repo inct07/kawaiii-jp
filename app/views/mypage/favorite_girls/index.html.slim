@@ -18,7 +18,7 @@
             - girl = girl_favorite.girl
             tr
               td = "#{girl_favorite.rank}位"
-              td = image_tag (girl.thumbnail_image ? girl.thumbnail_image.img_path : '/no_image.png'), class: 'thumbnail-img'
+              td == render "shared/thumbnail", girl: girl
               td = link_to girl.name, girl.description_path, target: '_new'
               td = current_user.image_favorites_num_per_girl(girl.id)
               td.text-right

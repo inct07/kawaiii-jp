@@ -1,0 +1,11 @@
+div
+  - if controller.action_name == 'index'
+    = link_to '全て', mypage_favorite_images_path, class: 'btn btn-primary'
+  - else
+    = link_to '全て', mypage_favorite_images_path, class: 'btn btn-default'
+
+  - @all_girls.each do |girl|
+    - if controller.action_name == 'show' && girl.id == @girl_id.to_i
+      = link_to girl.name, mypage_favorite_image_path(girl), class: 'btn btn-primary'
+    - else
+      = link_to girl.name, mypage_favorite_image_path(girl), class: 'btn btn-default'

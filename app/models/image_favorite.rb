@@ -1,4 +1,4 @@
-class Favorite < ApplicationRecord
+class ImageFavorite < ApplicationRecord
   belongs_to :user
   belongs_to :image
 end

@@ -1,0 +1,29 @@
+.row
+  .col-md-3
+    == render 'mypage/side_menu'
+  .col-md-9
+    - if @girl_favorites.blank?
+      h2.text-center  自分だけの神7を作ろう!
+    - else
+      table.table.table-hover
+        thead
+          tr
+            th 順位
+            th サムネ
+            th 名前
+            th たまらん数
+            th
+        tbody
+          - @girl_favorites.each do |girl_favorite|
+            - girl = girl_favorite.girl
+            tr
+              td = "#{girl_favorite.rank}位"
+              td = image_tag (girl.thumbnail_image ? girl.thumbnail_image.img_path : '/no_image.png'), class: 'thumbnail-img'
+              td = link_to girl.name, girl.description_path, target: '_new'
+              td = current_user.image_favorites_num_per_girl(girl.id)
+              td.text-right
+                = link_to '変更', edit_mypage_favorite_girl_path(girl_favorite), class: 'btn btn-default'
+    .text-center
+      = link_to '追加', new_mypage_favorite_girl_path, class: 'btn btn-info'
+
+= stylesheet_link_tag 'thumbnail', media: 'all', 'data-turbolinks-track': 'reload'

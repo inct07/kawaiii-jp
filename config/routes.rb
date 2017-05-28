@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, only: [:sessions,:registrations]
 
-  scope :mypage do
-    get 'favorites(/:girl_id)' => 'mypage#favorites', as: :mypage_favorites
+  namespace :mypage do
+    root 'favorite_images#index'
+    resources :favorite_images, only: [:index, :show]
+    resources :favorite_girls, execpt: [:show, :destroy]
   end
 
   namespace :admin do
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :girls, only: [:index, :show]
   resources :images, only: [:index]
-  resource :favorite, only: [:create, :destroy]
+  resource :image_favorite, only: [:create, :destroy]
 
   root 'girls#index'
 end

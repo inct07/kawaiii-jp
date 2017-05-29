@@ -1,3 +1,9 @@
 - @girls.each do |girl|
-  div
-    = link_to girl.name, girl_path(girl)
+  div.col-xs-12.col-md-6.col-lg-4
+    .item_box.clearfix
+      .thumbnail-img style="background-image: url(#{girl_thumbnail_image(girl)})
+      .detail
+        h4 #{girl.name}
+        = link_to '', girl_path(girl)
+
+= stylesheet_link_tag 'girl_block', media: 'all', 'data-turbolinks-track': 'reload'

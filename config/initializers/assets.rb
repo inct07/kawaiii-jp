@@ -13,3 +13,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 Rails.application.config.assets.precompile += %w(image_favorite.js edit_girl_thumbnail.js)
 Rails.application.config.assets.precompile += %w(thumbnail.css.scss girl_image.css.scss)
+Rails.application.config.assets.precompile += %w(girl_block.css.scss)

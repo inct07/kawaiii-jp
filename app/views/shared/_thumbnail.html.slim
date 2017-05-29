@@ -1,2 +1,2 @@
-.thumbnail-img style="background-image: url(#{(girl.thumbnail_image ? girl.thumbnail_image.img_path : '/no_image.png')})"
+.thumbnail-img style="background-image: url(#{girl_thumbnail_image(girl)})
   = link_to '', girl_path(girl)

@@ -12,7 +12,10 @@ class Admin::GirlSettingsController < ApplicationController
   def create
     @girl = Girl.new(girl_params)
     begin
-      @girl.save!
+      ActiveRecord::Base.transaction do
+        @girl.save!
+        get_girl_image_path(@girl)
+      end
       flash.notice = '美少女を追加しました。'
       redirect_to admin_girl_settings_path
     rescue => e
@@ -52,6 +55,12 @@ class Admin::GirlSettingsController < ApplicationController
   end
 
   private
+
+  def get_girl_image_path(girl)
+    paths = GoogleCustomSearch.new.bulk_get_image_paths(girl.name)
+    images = paths.map { |path| Image.new(girl: girl, img_path: path) }
+    Image.import! images
+  end
 
   def girl_params
     params.require(:girl).permit(

@@ -1,6 +1,7 @@
 class GoogleCustomSearch
   CUSTOM_SEARCH_URL = 'https://www.googleapis.com/customsearch/v1'
   API_GET_LIMIT = 10
+  BULK_GET_COUNT = 10
 
   def initialize
     @connection = Faraday::Connection.new(url: CUSTOM_SEARCH_URL) do |builder|
@@ -11,6 +12,14 @@ class GoogleCustomSearch
 
   def get_latest_image_paths(girl_name)
     get_image_paths(girl_name, { dateRestrict: 'd1' })
+  end
+
+  def bulk_get_image_paths(girl_name)
+    paths = []
+    BULK_GET_COUNT.times do |i|
+      paths << get_image_paths(girl_name, { start: (i * API_GET_LIMIT) + 1 })
+    end
+    paths.flatten
   end
 
   private

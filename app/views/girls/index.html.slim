@@ -1,7 +1,7 @@
 - @girls.each do |girl|
   div.col-xs-12.col-md-6.col-lg-4
     .item_box.clearfix
-      .thumbnail-img style="background-image: url(#{(girl.thumbnail_image ? girl.thumbnail_image.img_path : '/no_image.png')})"
+      .thumbnail-img style="background-image: url(#{girl_thumbnail_image(girl)})
       .detail
         h4 #{girl.name}
         = link_to '', girl_path(girl)

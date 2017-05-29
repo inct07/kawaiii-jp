@@ -1,6 +1,6 @@
 namespace :development do
   desc 'Google画像検索結果をスクレピングして美少女画像のデータを追加'
-  task :get_image_paths, ['girl_id'] => :environment do |task, args|
+  task :get_image_paths, [:girl_id] => :environment do |task, args|
     girl = Girl.find_by(id: args.girl_id)
     if girl.blank?
       puts '該当の美少女が見つかりません'

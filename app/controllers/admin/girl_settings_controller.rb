@@ -18,6 +18,9 @@ class Admin::GirlSettingsController < ApplicationController
       end
       flash.notice = '美少女を追加しました。'
       redirect_to admin_girl_settings_path
+    rescue GoogleCustomSearch::RequestLimit
+      flash.alert = '画像取得APIのリクエスト上限値に達しました'
+      redirect_to admin_girl_settings_path
     rescue => e
       flash.alert = e.message
       render action: 'new'

@@ -9,6 +9,8 @@ namespace :daily do
         images = paths.map { |path| Image.new(girl: girl, img_path: path) }
         Image.import images
       end
+    rescue GoogleCustomSearch::RequestLimit
+      logger.info 'Google Custom Search Request Limit!'
     rescue => e
       logger.error e
     end

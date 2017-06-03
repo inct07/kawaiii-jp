@@ -28,7 +28,7 @@ namespace :deploy do
     on roles(:app) do |host|
       with rails_env: fetch(:rails_env) do
         within current_path do
-          execute :rake, "db:migrate"
+          execute :rake, 'db:migrate'
         end
       end
     end
@@ -39,8 +39,8 @@ namespace :deploy do
     on roles(:app) do |host|
       with rails_env: fetch(:rails_env) do
         within current_path do
-          execute :rake, "unicorn:stop"
-          execute :rake, "unicorn:start"
+          execute :rake, 'unicorn:stop'
+          execute :rake, 'unicorn:start'
         end
       end
     end

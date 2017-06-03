@@ -9,7 +9,6 @@ function imageFavorite(id, button) {
         .done(function(data){
             button.removeClass('favorite').addClass('no-favorite')
             button.addClass('btn-default')
-            button.css("background", "white")
             button.children().removeClass('glyphicon-heart').addClass('glyphicon-heart-empty')
         })
   } else {
@@ -18,8 +17,13 @@ function imageFavorite(id, button) {
         .done(function(data){
             button.removeClass('no-favorite').addClass('favorite')
             button.removeClass('btn-default')
-            button.css("background", "#ff69b4")
             button.children().removeClass('glyphicon-heart-empty').addClass('glyphicon-heart')
         })
   }
 }
+
+$(function() {
+  $('.grid').masonry({
+    isFitWidth: true,
+  });
+});

@@ -16,6 +16,9 @@ set :rbenv_ruby, '2.4.0'
 set :linked_dirs, %w{bin bundle log public tmp}
 set :linked_files, %w(.env.production)
 
+set :whenever_environment, 'production'
+set :whenever_roles, :web
+
 after 'deploy:updated', 'deploy:migrate'
 after 'deploy:publishing', 'deploy:restart'
 

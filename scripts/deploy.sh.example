@@ -1,0 +1,1 @@
+PRODUCTION_HOST=your_host PRODUCTION_USER=your_user PRODUCTION_SSH_KEY=your_ssh_key bundle exec cap production deploy --trace

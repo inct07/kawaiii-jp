@@ -30,6 +30,11 @@ group :development, :test do
   gem 'pry-rails'
   gem 'capybara', '~> 2.13.0'
   gem 'selenium-webdriver'
+
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
 end
 
 group :development do

@@ -3,7 +3,7 @@ lock '3.8.1'
 set :application, 'kawaiii-jp'
 set :repo_url, 'https://github.com/inct07/kawaiii-jp.git'
 set :branch, 'master'
-set :deploy_to, "~/kawaiii-jp"
+set :deploy_to, '~/kawaiii-jp'
 set :scm, :git
 
 set :format, :pretty
@@ -17,7 +17,7 @@ set :linked_dirs, %w{bin bundle log public tmp}
 set :linked_files, %w(.env.production)
 
 set :whenever_environment, 'production'
-set :whenever_roles, :web
+set :whenever_roles, :batch
 
 after 'deploy:updated', 'deploy:migrate'
 after 'deploy:publishing', 'deploy:restart'

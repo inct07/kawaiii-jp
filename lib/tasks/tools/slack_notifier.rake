@@ -2,23 +2,12 @@ require 'slack'
 
 namespace :tools do
   namespace :slack_notifier do
-    desc 'deploy開始をSlackに通知する'
-    task deploy_start: :environment do
-      slack_notifier('@here デプロイがはじまったょ:heart:')
-    end
-
     desc 'deploy完了をSlackに通知する'
-    task deploy_finish: :environment do
-      slack_notifier('@here デプロイがおわったょ:heart:')
-    end
-
-    private
-
-    def slack_notifier(text)
+    task deploy: :environment do
       Slack.configure do |config|
         config.token = ENV['SLACK_API_TOKEN']
       end
-      Slack.chat_postMessage(text: text,
+      Slack.chat_postMessage(text: '@here デプロイがおわったょ:heart:',
                              link_names: 1,
                              username: '橋本環奈',
                              channel: "##{ENV['SLACK_NOTIFIER_CHANNEL']}",

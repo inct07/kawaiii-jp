@@ -4,7 +4,7 @@ namespace :tools do
   namespace :slack_notifier do
     desc 'deploy開始をSlackに通知する'
     task deploy_start: :environment do
-      slack_notifier('@here デプロイが始まったょ:heart:')
+      slack_notifier('@here デプロイがはじまったょ:heart:')
     end
 
     desc 'deploy完了をSlackに通知する'

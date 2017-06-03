@@ -21,4 +21,4 @@
 .idea/*
 /public/assets/
 .env*
-/deploy.sh
+/scripts/deploy.sh

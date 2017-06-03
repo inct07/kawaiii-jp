@@ -21,6 +21,7 @@ set :whenever_roles, :batch
 
 after 'deploy:updated', 'deploy:migrate'
 after 'deploy:publishing', 'deploy:restart'
+after 'deploy:finishing', 'deploy:notifier'
 
 namespace :deploy do
   desc 'database migrate'
@@ -41,6 +42,17 @@ namespace :deploy do
         within current_path do
           execute :rake, 'unicorn:stop'
           execute :rake, 'unicorn:start'
+        end
+      end
+    end
+  end
+
+  desc 'slack notifier'
+  task :notifier do
+    on roles(:app) do |host|
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+          execute :rake, 'tools:slack_notifier:deploy'
         end
       end
     end

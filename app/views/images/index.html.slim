@@ -1,3 +1,1 @@
-- @images.each do |image|
-  h2 #{image.girl.name}
-  == render "shared/image", image: image
+== render "shared/masonry_images", images: @images

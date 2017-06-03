@@ -3,7 +3,6 @@
   height: 100px;
   margin: 5px;
   border-radius: 50%;
-  border: 3px solid #ffe5ff;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,7 +15,6 @@
   text-indent:-999px;
 }
 .thumbnail-img a:hover {
-  margin: -3px;
   border-radius: 50%;
   background-color:#ffe5ff;
   filter:alpha(opacity=50);
@@ -31,5 +29,5 @@
   opacity: .5;
 }
 .thumbnail-img.selected {
-  border: 3px solid #ff7fff;
+  border: 3px solid #ffe5ff;
 }

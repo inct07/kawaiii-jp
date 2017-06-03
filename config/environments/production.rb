@@ -50,7 +50,7 @@ Rails.application.configure do
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :info
-  config.logger = Logger.new('log/development.log', 'daily')
+  config.logger = Logger.new('log/production.log', 'daily')
   config.get_latest_image_paths_logger = Logger.new('log/daily/get_latest_image_paths.log', 'daily')
 
   # Prepend all log lines with the following tags.

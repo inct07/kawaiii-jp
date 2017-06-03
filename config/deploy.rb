@@ -13,6 +13,34 @@ set :keep_releases, 3
 set :rbenv_type, :user
 set :rbenv_ruby, '2.4.0'
 
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/assets}
+set :linked_dirs, %w{bin bundle log public tmp}
 set :linked_files, %w(.env.production)
+
+after 'deploy:updated', 'deploy:migrate'
+after 'deploy:publishing', 'deploy:restart'
+
+namespace :deploy do
+  desc 'database migrate'
+  task :migrate do
+    on roles(:app) do |host|
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+          execute :rake, "db:migrate"
+        end
+      end
+    end
+  end
+
+  desc 'unicorn restart'
+  task :restart do
+    on roles(:app) do |host|
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+          execute :rake, "unicorn:stop"
+          execute :rake, "unicorn:start"
+        end
+      end
+    end
+  end
+end
 

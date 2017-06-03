@@ -24,7 +24,6 @@ namespace :tools do
                              channel: "##{ENV['SLACK_NOTIFIER_CHANNEL']}",
                              icon_url: 'https://pbs.twimg.com/profile_images/790149435380539392/bzkT_r8q_400x400.jpg',
                              as_user: false)
-
     end
   end
 end

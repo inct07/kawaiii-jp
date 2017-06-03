@@ -24,24 +24,25 @@ gem 'whenever', :require => false
 gem 'faraday'
 gem 'activerecord-import'
 gem 'newrelic_rpm'
+gem 'slack-api'
+gem 'listen', '>= 3.0.5', '< 3.2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
   gem 'capybara', '~> 2.13.0'
   gem 'selenium-webdriver'
+end
+
+group :development do
+  gem 'web-console', '>= 3.3.0'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
-end
-
-group :development do
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

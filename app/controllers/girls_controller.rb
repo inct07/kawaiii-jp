@@ -6,6 +6,6 @@ class GirlsController < ApplicationController
   def show
     @girl = Girl.find(params[:id])
     @images = Image.where(girl: @girl).includes(:favorited_users)
-              .page(params[:page]).per(30)
+              .page(params[:page]).per(PAGE_LIMIT)
   end
 end

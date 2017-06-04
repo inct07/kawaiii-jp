@@ -1,12 +1,11 @@
-.col-xs-12.col-md-6.col-lg-3
-  .girl
-    = link_to image.img_path do
-      = image_tag image.img_path, class: "img-responsive center-block"
-    - if image.favorited_users.include?(current_user)
-      = button_tag '', class: "btn favorite-button favorite", value: image.id, id: image.id
-        span.glyphicon.glyphicon-heart たまらん
-    - else
-      = button_tag '', class: "btn favorite-button no-favorite btn-default", value: image.id, id: image.id
-        span.glyphicon.glyphicon-heart-empty たまらん
-    .girl-caption
-      = link_to "出典：" + URI.unescape(URI.parse(image.img_path).host), image.img_path, class: 'bottom text-center'
+.col-xs-12.col-md-6.col-lg-3.girl
+  = link_to image.img_path do
+    = image_tag image.img_path, class: "img-responsive center-block"
+  - if image.favorited_users.include?(current_user)
+    = button_tag '', class: "btn favorite-button favorite", value: image.id, id: image.id
+      span.glyphicon.glyphicon-heart たまらん
+  - else
+    = button_tag '', class: "btn favorite-button no-favorite btn-default", value: image.id, id: image.id
+      span.glyphicon.glyphicon-heart-empty たまらん
+  .girl-caption
+    = link_to "出典：" + URI.unescape(URI.parse(image.img_path).host), image.img_path, class: 'bottom text-center'

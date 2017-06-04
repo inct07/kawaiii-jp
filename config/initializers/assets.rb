@@ -15,3 +15,6 @@ Rails.application.config.assets.precompile += %w(image_favorite.js edit_girl_thu
 Rails.application.config.assets.precompile += %w(thumbnail.css.scss girl_image.css.scss)
 Rails.application.config.assets.precompile += %w(girl_block.css.scss)
 Rails.application.config.assets.precompile += %w(masonry.pkgd.min.js)
+Rails.application.config.assets.precompile += %w(jquery.infinitescroll.min.js)
+Rails.application.config.assets.precompile += %w(imagesloaded.pkgd.min.js)
+Rails.application.config.assets.precompile += %w(show_girl_images.js)

@@ -21,9 +21,3 @@ function imageFavorite(id, button) {
         })
   }
 }
-
-$(function() {
-  $('.grid').masonry({
-    isFitWidth: true,
-  });
-});

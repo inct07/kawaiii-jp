@@ -26,6 +26,7 @@ gem 'activerecord-import'
 gem 'newrelic_rpm'
 gem 'slack-api'
 gem 'listen', '>= 3.0.5', '< 3.2'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

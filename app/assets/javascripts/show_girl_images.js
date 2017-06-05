@@ -21,5 +21,9 @@ jQuery(document).ready(function($) {
     $newElems.imagesLoaded(function() {
       $container.masonry('appended', $newElems, true);
     });
+    var buttons = $('.favorite-button');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].onclick = function() { imageFavorite($(this).val(),$(this)); };
+    }
   });
 });

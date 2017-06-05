@@ -1,18 +1,30 @@
-nav.navbar.navbar-default.navbar-fixed-top
+.header
   .container
-    .navbar-header
-      button.navbar-toggle.collapsed[data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"]
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      = link_to "かわいい.jp", root_path, class: 'navbar-brand'
-    #navbar.collapse.navbar-collapse
-      ul.nav.navbar-nav.navbar-right
-        - if user_signed_in?
-          = link_to "マイページ", mypage_root_path, class: 'navbar-brand'
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'navbar-brand'
-          - if current_user.admin?
-            = link_to "管理者ページ", admin_top_path, class: 'navbar-brand'
-        - else
-          = link_to "ログイン", user_session_path, class: 'navbar-brand'
-          = link_to "アカウント作成", new_user_registration_path, class: 'navbar-brand'
+    .row
+      .col-xs-4.col-sm-4.col-md-4.col-lg-4.text-center
+      .col-xs-4.col-sm-4.col-md-4.col-lg-4.text-center
+        = link_to root_path do
+          = image_tag 'logo.png', class: 'logo'
+      .col-xs-4.col-sm-4.col-md-4.col-lg-4.text-center
+        = link_to mypage_root_path, class: 'btn btn-default', id: 'mypage-btn' do
+          i.glyphicon.glyphicon-user#mypage-icon
+
+/ 後でまとめて消す
+/nav.navbar.navbar-default.navbar-fixed-top
+/  .container
+/    .navbar-header
+/      button.navbar-toggle.collapsed[data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"]
+/        span.icon-bar
+/        span.icon-bar
+/        span.icon-bar
+/      = link_to "かわいい.jp", root_path, class: 'navbar-brand'
+/    #navbar.collapse.navbar-collapse
+/      ul.nav.navbar-nav.navbar-right
+/        - if user_signed_in?
+/          = link_to "マイページ", mypage_root_path, class: 'navbar-brand'
+/          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'navbar-brand'
+/          - if current_user.admin?
+/            = link_to "管理者ページ", admin_top_path, class: 'navbar-brand'
+/        - else
+/          = link_to "ログイン", user_session_path, class: 'navbar-brand'
+/          = link_to "アカウント作成", new_user_registration_path, class: 'navbar-brand'

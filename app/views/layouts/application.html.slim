@@ -3,13 +3,17 @@ html
   head
     title
       | かわいい.jp
+    = favicon_link_tag 'favicon.ico'
+    meta[name='viewport' content='width=device-width,initial-scale=1']
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag 'girl_image', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag 'thumbnail', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'navbar', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     == render 'layouts/header'
+    == render 'layouts/navbar'
     == render 'layouts/alert'
     .container
       == yield

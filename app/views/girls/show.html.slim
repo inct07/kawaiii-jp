@@ -1,2 +1,6 @@
 h1 #{@girl.name}
 == render "shared/masonry_images", images: @images
+
+.navigation
+  #loading
+    = paginate @images

@@ -1,3 +1,6 @@
+#grid {
+  padding: 0 0 100px;
+}
 .girl {
   position: relative;
   overflow: hidden;
@@ -5,8 +8,10 @@
   -webkit-border-radius: 18px;
   -moz-border-radius: 18px;
   background-color: #000000;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  float: left;
 }
 .girl .img-responsive {
   display: block;
@@ -70,4 +75,27 @@
   background-color: #ffd1ff;
 }
 .no-favorite {
+}
+
+#loading {
+  text-align: center;
+  z-index: 100;
+  position: fixed;
+  bottom: 40px;
+  width: 100%;
+  padding: 10px 0;
+  background: #fff;
+  opacity: 0.8;
+  color: #666;
+}
+.navigation {
+  width: 100%;
+  clear: both;
+  background-color: #ccc;
+  padding: 20px;
+  text-align: center;
+}
+.navigation a {
+  color: #fff;
+  text-decoration: none;
 }

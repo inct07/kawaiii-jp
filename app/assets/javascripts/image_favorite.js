@@ -1,6 +1,7 @@
-$('.favorite-button').on('click', function() {
-  imageFavorite($(this).val(),$(this))
-})
+var buttons = $('.favorite-button');
+for (var i = 0; i < buttons.length; i++) {
+  buttons[i].onclick = function() { imageFavorite($(this).val(),$(this)); };
+}
 
 function imageFavorite(id, button) {
   if (button.hasClass('favorite')) {
@@ -21,9 +22,3 @@ function imageFavorite(id, button) {
         })
   }
 }
-
-$(function() {
-  $('.grid').masonry({
-    isFitWidth: true,
-  });
-});

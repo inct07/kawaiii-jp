@@ -2,7 +2,6 @@ jQuery(document).ready(function($) {
   var $container = $('#grid');
   $container.imagesLoaded(function() {
     $container.masonry({
-      itemSelector: '.girl',
       isAnimated: true,
       isFitWidth: true,
       isResizable: true
@@ -11,7 +10,7 @@ jQuery(document).ready(function($) {
   $container.infinitescroll( {
     navSelector: '.navigation',
     nextSelector: '.navigation a',
-    itemSelector: '.col-xs-12.col-md-6.col-lg-3.girl',
+    itemSelector: '.col-xs-12.col-md-6.col-lg-3',
     loading: {
       finishedMsg: 'All Loaded',
       img: '/loading.gif'

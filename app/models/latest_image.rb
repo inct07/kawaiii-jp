@@ -5,9 +5,9 @@ class LatestImage
   include DataMapper::Resource
 
   property :id, Serial
-  value :image_id
-  value :girl_id
-  value :img_path
+  property :image_id, String
+  property :girl_id, String
+  property :img_path, String
 end
 
 LatestImage.finalize

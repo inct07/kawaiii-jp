@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   resources :latest_images, only: [:index]
   resource :image_favorite, only: [:create, :destroy]
 
-  root 'girls#index'
+  root 'latest_images#index'
 end

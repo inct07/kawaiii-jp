@@ -12,8 +12,9 @@ jQuery(document).ready(function($) {
     nextSelector: '.navigation a',
     itemSelector: '.col-xs-12.col-md-6.col-lg-3',
     loading: {
-      finishedMsg: 'All Loaded',
-      img: '/loading.gif'
+      msgText: '',
+      finishedMsg: '',
+      img: '/assets/loading.gif'
     }
   },
   function(newElements) {

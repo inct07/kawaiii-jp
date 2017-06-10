@@ -1,0 +1,11 @@
+defaults: &defaults
+  server: 'redis://localhost:6379'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  server: <%= ENV['REDIS_SERVER'] %>

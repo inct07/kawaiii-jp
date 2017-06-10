@@ -1,0 +1,5 @@
+== render "shared/masonry_images", images: @latest_images, current_user_favorite_images: @current_user_favorite_images
+
+.navigation
+  span.page
+    = link_to '', latest_images_path(page: 1)

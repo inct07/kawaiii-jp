@@ -1,0 +1,1 @@
+Redis.current = Redis.new(host: RedisSettings.host, port: RedisSettings.port)

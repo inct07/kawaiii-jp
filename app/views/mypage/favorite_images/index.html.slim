@@ -4,7 +4,7 @@
   .col-md-9
     == render 'mypage/favorite_images/girl_nav'
     hr
-    == render "shared/masonry_images", images: @favorite_images
+    == render "shared/masonry_images", images: @favorite_images, current_user_favorite_images: @current_user_favorite_images
 .navigation
   #loading
     = paginate @favorite_images

@@ -2,7 +2,7 @@
   .girl
     = link_to image.img_path do
       = image_tag image.img_path, class: "img-responsive center-block"
-    - if image.favorited_users.include?(current_user)
+    - if current_user_favorite_images.include?(image)
       = button_tag '', class: "btn favorite-button favorite", value: image.id, id: image.id
         span.glyphicon.glyphicon-heart たまらん
     - else

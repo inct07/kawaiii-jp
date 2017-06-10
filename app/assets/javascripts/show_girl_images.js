@@ -2,16 +2,14 @@ jQuery(document).ready(function($) {
   var $container = $('#grid');
   var $firstElems = $('.girl-grid');
   $firstElems.css('display', 'none');
+  $container.masonry({
+    isAnimated: true,
+    isFitWidth: true,
+    isResizable: true
+  });
   $container.imagesLoaded(function() {
-    $container.masonry({
-      isAnimated: true,
-      isFitWidth: true,
-      isResizable: true
-    });
-    $firstElems.imagesLoaded(function() {
-      $firstElems.css('display', 'inline');
-      $container.masonry('appended', $firstElems, true);
-    });
+    $firstElems.css('display', 'inline');
+    $container.masonry('appended', $firstElems, true);
   });
   $container.infinitescroll( {
     navSelector: '.navigation',

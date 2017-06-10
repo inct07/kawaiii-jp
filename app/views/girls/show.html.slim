@@ -2,5 +2,4 @@ h1 #{@girl.name}
 == render "shared/masonry_images", images: @images, current_user_favorite_images: @current_user_favorite_images
 
 .navigation
-  #loading
-    = paginate @images
+  = paginate @images

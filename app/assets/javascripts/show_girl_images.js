@@ -1,24 +1,31 @@
 jQuery(document).ready(function($) {
   var $container = $('#grid');
+  var $firstElems = $('.girl-grid');
+  $firstElems.css('display', 'none');
+  $container.masonry({
+    isAnimated: true,
+    isFitWidth: true,
+    isResizable: true
+  });
   $container.imagesLoaded(function() {
-    $container.masonry({
-      isAnimated: true,
-      isFitWidth: true,
-      isResizable: true
-    });
+    $firstElems.css('display', 'inline');
+    $container.masonry('appended', $firstElems, true);
   });
   $container.infinitescroll( {
     navSelector: '.navigation',
     nextSelector: '.navigation a',
-    itemSelector: '.col-xs-12.col-md-6.col-lg-3',
+    itemSelector: '.girl-grid',
     loading: {
-      finishedMsg: 'All Loaded',
-      img: '/loading.gif'
+      msgText: '',
+      finishedMsg: '',
+      img: '/assets/loading.gif'
     }
   },
   function(newElements) {
     var $newElems = $(newElements);
+    $newElems.css('display', 'none');
     $newElems.imagesLoaded(function() {
+      $newElems.css('display', 'inline');
       $container.masonry('appended', $newElems, true);
     });
     var buttons = $('.favorite-button');

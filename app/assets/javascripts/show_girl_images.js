@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
     loading: {
       msgText: '',
       finishedMsg: '',
-      img: '/assets/loading.gif'
+      img: '/loading.gif'
     }
   },
   function(newElements) {

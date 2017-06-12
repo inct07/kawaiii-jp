@@ -6,18 +6,17 @@ html
     = favicon_link_tag 'favicon.ico'
     = favicon_link_tag 'apple-touch-icon-180x180.png', :rel => 'apple-touch-icon', :type => 'image/png'
     meta[name='viewport' content='width=device-width,initial-scale=1']
-    meta[name="turbolinks-cache-control" content="no-preview"]
     = csrf_meta_tags
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_link_tag 'girl_image', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_link_tag 'thumbnail', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_link_tag 'navbar', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'masonry.pkgd.min', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'jquery.infinitescroll.min', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'imagesloaded.pkgd.min', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'show_girl_images', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'image_favorite', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag 'girl_image', media: 'all'
+    = stylesheet_link_tag 'thumbnail', media: 'all'
+    = stylesheet_link_tag 'navbar', media: 'all'
+    = javascript_include_tag 'application'
+    = javascript_include_tag 'masonry.pkgd.min'
+    = javascript_include_tag 'jquery.infinitescroll.min'
+    = javascript_include_tag 'imagesloaded.pkgd.min'
+    = javascript_include_tag 'show_girl_images'
+    = javascript_include_tag 'image_favorite'
   body
     == render 'layouts/header'
     == render 'layouts/navbar'

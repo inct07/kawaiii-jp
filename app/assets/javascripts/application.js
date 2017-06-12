@@ -13,23 +13,3 @@
 //= require rails-ujs
 //= require jquery
 //= require bootstrap-sprockets
-
-$(document).ready(function() {
-	var $win = $(window),
-	    $header = $('.header'),
-      $navbar = $('.navbar'),
-	    headerHeight = $header.outerHeight(),
-      navbarHeight = $navbar.outerHeight(),
-	    startPos = 0;
-	$win.on('load scroll', function() {
-		var value = $(this).scrollTop();
-		if ( value > startPos && value > navbarHeight) {
-			$header.css('top', '-' + headerHeight + 'px');
-      $navbar.css('top', '-' + navbarHeight + 'px');
-		} else {
-			$header.css('top', '0');
-      $navbar.css('top', headerHeight + 'px');
-		}
-    startPos = value;
-	});
-});

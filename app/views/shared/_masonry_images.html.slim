@@ -6,4 +6,6 @@
   - images.each do |image|
     == render "shared/image", image: image, current_user_favorite_images: @current_user_favorite_images
 
+#user-modal.modal.fade[tabindex="-1" role="dialog" aria-hidden="true"]
+
 = hidden_field_tag 'authenticity_token', form_authenticity_token

@@ -4,6 +4,7 @@ jQuery(document).ready(function($) {
     buttons[i].onclick = function() { imageFavorite($(this).val(),$(this)); };
   }
 });
+
 function imageFavorite(id, button) {
   if (button.hasClass('favorite')) {
     $.ajax({url: '/image_favorite', type: 'POST', data: {_method: 'delete',

@@ -1,0 +1,40 @@
+$('#image-modal').html('<%= escape_javascript(render 'image_modal') %>')
+$('#image-modal').modal('show')
+
+
+$('#image-modal').on('shown.bs.modal', function () {
+    jQuery(document).ready(function($) {
+        var modal_favorite_button = $('#image-modal').find('.favorite-button');
+        // なぜか配列になっているので最初の要素を取ってくる
+        modal_favorite_button[0].onclick = function() { modalImageFavorite($(this).val(),$(this)); };
+    });
+});
+
+function modalImageFavorite(id, button) {
+    if (button.hasClass('favorite')) {
+        $.ajax({url: '/image_favorite', type: 'POST', data: {_method: 'delete',
+            authenticity_token: $('#authenticity_token').val(), image_id: id}})
+            .done(function(data){
+                button.removeClass('favorite').addClass('no-favorite')
+                button.addClass('btn-default')
+                button.children().removeClass('glyphicon-heart').addClass('glyphicon-heart-empty')
+                //データの不整合がないようにindexページの画像もたまらんする
+                $('#' + id).removeClass('favorite').addClass('no-favorite')
+                $('#' + id).addClass('btn-default')
+                $('#' + id).children().removeClass('glyphicon-heart').addClass('glyphicon-heart-empty')
+            })
+    } else {
+        $.ajax({url: '/image_favorite', type: 'POST', data: {_method: 'post',
+            authenticity_token: $('#authenticity_token').val(), image_id: id}})
+            .done(function(data){
+                button.removeClass('no-favorite').addClass('favorite')
+                button.removeClass('btn-default')
+                button.children().removeClass('glyphicon-heart-empty').addClass('glyphicon-heart')
+                //データの不整合がないようにindexページの画像もたまらんする
+                $('#' + id).removeClass('no-favorite').addClass('favorite')
+                $('#' + id).removeClass('btn-default')
+                $('#' + id).children().removeClass('glyphicon-heart-empty').addClass('glyphicon-heart')
+            })
+    }
+}
+

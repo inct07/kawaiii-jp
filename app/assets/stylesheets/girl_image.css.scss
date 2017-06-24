@@ -56,27 +56,12 @@
   opacity: 0.9;
   cursor : zoom-in;
 }
-.favorite-button {
+.embedded {
   visibility: hidden;
   position: absolute;
   top: 10px;
   right: 10px;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
 }
-.favorite-button span {
-  font-size: calc(100% + 0.5vw);
-}
-.girl:hover .favorite-button {
-  visibility: visible;
-}
-.favorite {
-  background-color: #ffd1ff;
-}
-.no-favorite {
-}
-
 #infscr-loading {
   text-align: center;
   position: absolute;

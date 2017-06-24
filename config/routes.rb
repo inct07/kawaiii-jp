@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :girl_settings, execpt: [:show]
   end
 
+  resources :images, only: [:show]
   resources :girls, only: [:index, :show]
   resources :latest_images, only: [:index]
   resource :image_favorite, only: [:create, :destroy]

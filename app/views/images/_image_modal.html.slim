@@ -1,4 +1,20 @@
 .modal-dialog
   .modal-content
-    .text-center
-      = image_tag @image.img_path
+    .modal-body
+      button.close[type="button" data-dismiss="modal" aria-label="Close"]
+        span[aria-hidden="true"] &times;
+      .text-center
+        = image_tag @image.img_path, style: "width: 100%;"
+        .girl-caption
+          = link_to "出典：" + URI.unescape(URI.parse(@image.img_path).host), @image.img_path
+    .modal-footer
+      div
+        .col-xs-6.col-md-6.col-lg-6.text-left
+          p[style="font-size: calc(100% + 0.5vw);"] #{@image.girl.name}
+        .col-xs-6.col-md-6.col-lg-6.text-right
+          - if @image.favorited_users.include?(current_user)
+            = button_tag '', class: "btn favorite-button favorite", value: @image.id
+              span.glyphicon.glyphicon-heart たまらん
+          - else
+            = button_tag '', class: "btn favorite-button no-favorite btn-default", value: @image.id
+              span.glyphicon.glyphicon-heart-empty たまらん

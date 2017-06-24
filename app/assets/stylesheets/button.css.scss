@@ -1,0 +1,16 @@
+.favorite-button {
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+}
+.favorite-button span {
+  font-size: calc(100% + 0.5vw);
+}
+.girl:hover .favorite-button {
+  visibility: visible;
+}
+.favorite {
+  background-color: #ffd1ff;
+}
+.no-favorite {
+}

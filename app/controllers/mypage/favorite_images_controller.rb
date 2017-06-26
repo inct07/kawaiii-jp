@@ -1,4 +1,6 @@
 class Mypage::FavoriteImagesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     all_favorite_images = current_user.favorite_images.includes(:girl)
     render 'mypage/favorite_images/no_favorite_images' if all_favorite_images.blank?

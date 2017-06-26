@@ -12,9 +12,10 @@
         .col-xs-6.col-md-6.col-lg-6.text-left
           p[style="font-size: calc(100% + 0.5vw);"] #{@image.girl.name}
         .col-xs-6.col-md-6.col-lg-6.text-right
-          - if @image.favorited_users.include?(current_user)
-            = button_tag '', class: "btn favorite-button favorite", value: @image.id
-              span.glyphicon.glyphicon-heart たまらん
-          - else
-            = button_tag '', class: "btn favorite-button no-favorite btn-default", value: @image.id
-              span.glyphicon.glyphicon-heart-empty たまらん
+          - if user_signed_in?
+            - if @image.favorited_users.include?(current_user)
+              = button_tag '', class: "btn favorite-button favorite", value: @image.id
+                span.glyphicon.glyphicon-heart たまらん
+            - else
+              = button_tag '', class: "btn favorite-button no-favorite btn-default", value: @image.id
+                span.glyphicon.glyphicon-heart-empty たまらん

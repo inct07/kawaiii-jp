@@ -1,4 +1,6 @@
 class Mypage::FavoriteGirlsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @girl_favorites = current_user.girl_favorites.order('rank').includes(girl: [:thumbnail_image])
   end
